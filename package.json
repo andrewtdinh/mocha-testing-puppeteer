@@ -1,0 +1,25 @@
+{
+  "name": "mocha-testing-puppeteer",
+  "version": "1.0.0",
+  "description": "Checking out puppeteer for end-to-end testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewtdinh/mocha-testing-puppeteer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewtdinh/mocha-testing-puppeteer/issues"
+  },
+  "homepage": "https://github.com/andrewtdinh/mocha-testing-puppeteer#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "puppeteer": "^1.14.0"
+  }
+}
