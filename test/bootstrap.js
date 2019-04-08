@@ -1,6 +1,8 @@
 /* Import the puppeteer and expect functionality of chai library for configuraing the Puppeteer */
 const puppeteer = require('puppeteer');
 const { expect } = require('chai');
+const opn = require('opn');
+const cmd = require('node-cmd');
 const _ = require('lodash');
 
 /* create the global variable by using lodash function */
@@ -25,4 +27,6 @@ after(() => {
   browser.close();
   global.browser = globalVariables.browser;
   global.expect = globalVariables.expect;
+  setTimeout(() => { cmd.run('node server.js'); }, 5000); 
+  setTimeout(() => { opn('http://localhost:9988'); }, 2000);
 });
