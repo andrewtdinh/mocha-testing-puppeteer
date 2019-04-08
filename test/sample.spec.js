@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { expect } = require('chai');
 
 describe('simple test for Linkedin Login functionality', async () => {
@@ -22,11 +23,13 @@ describe('simple test for Linkedin Login functionality', async () => {
     linkPassword = await page.$(passwordInput);
     linkSubmit = await page.$(submitSelector);
 
+    console.log(process.env.PASSWORD, process.env.EMAIL_ADDRESS);
+
     await linkEmail.click({ clickCount: 3 });
-    await linkEmail.type(''); // add the email address for linkedin //
+    await linkEmail.type('test@email.com'); // add the email address for linkedin //
 
     await linkPassword.click({ clickCount: 3 });
-    await linkPassword.type(''); // add password for linkedin account
+    await linkPassword.type('test'); // add password for linkedin account
 
     await linkSubmit.click();
     await page.waitFor(3000);
