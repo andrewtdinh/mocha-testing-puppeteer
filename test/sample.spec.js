@@ -24,10 +24,10 @@ describe('simple test for Linkedin Login functionality', async () => {
     linkSubmit = await page.$(submitSelector);
 
     await linkEmail.click({ clickCount: 3 });
-    await linkEmail.type(process.env.EMAIL_ADDRESS); // add the email address for linkedin //
+    await linkEmail.type(process.env.LINKEDIN_USER); // add the email address for linkedin //
 
     await linkPassword.click({ clickCount: 3 });
-    await linkPassword.type(process.env.PASSWORD); // add password for linkedin account
+    await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account
 
     await linkSubmit.click();
     await page.waitFor(3000);
