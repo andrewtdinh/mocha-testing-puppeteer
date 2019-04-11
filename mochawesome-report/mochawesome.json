@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2019-04-11T06:52:11.993Z",
-    "end": "2019-04-11T06:52:16.240Z",
-    "duration": 4247,
+    "start": "2019-04-11T06:57:18.819Z",
+    "end": "2019-04-11T06:57:23.198Z",
+    "duration": 4379,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "20ad26c4-a9b7-4e3d-9ecc-ec69f4a31969",
+    "uuid": "5bda8c03-03a4-4cff-89b8-ed94403921d9",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,14 +28,14 @@
         "title": "\"before all\" hook",
         "fullTitle": "\"before all\" hook",
         "timedOut": false,
-        "duration": 832,
+        "duration": 1059,
         "pass": false,
         "fail": false,
         "pending": false,
         "code": "global.expect = expect;\nglobal.browser = await puppeteer.launch(opts);",
         "err": {},
         "isRoot": true,
-        "uuid": "6d2eaf1e-0d9b-4454-a9c2-a719cbd1f01d",
+        "uuid": "6c8f6682-9dfb-425d-8690-a91f01d26e7c",
         "isHook": true,
         "skipped": false
       }
@@ -45,14 +45,14 @@
         "title": "\"after all\" hook",
         "fullTitle": "\"after all\" hook",
         "timedOut": false,
-        "duration": 78,
+        "duration": 70,
         "pass": false,
         "fail": false,
         "pending": false,
         "code": "browser.close();\nglobal.browser = globalVariables.browser;\nglobal.expect = globalVariables.expect;\nsetTimeout(() => { cmd.run('node server.js'); }, 5000); \nsetTimeout(() => { opn('http://localhost:9988'); }, 2000);",
         "err": {},
         "isRoot": true,
-        "uuid": "69d68011-f131-4bb4-ab50-613a7fda1b2a",
+        "uuid": "033e67ad-3732-475a-8274-d17f919f9e33",
         "isHook": true,
         "skipped": false
       }
@@ -60,7 +60,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "96c99cee-06bf-4804-b17a-36576ab6664d",
+        "uuid": "cdb7baa3-906b-480f-b260-570db98ffae0",
         "title": "Tests for Upwork Login functionalities",
         "fullFile": "/Users/andrewd/Personal/mocha-testing-puppeteer/test/upwork/upwork_login.spec.js",
         "file": "/test/upwork/upwork_login.spec.js",
@@ -69,14 +69,14 @@
             "title": "\"before all\" hook",
             "fullTitle": "Tests for Upwork Login functionalities \"before all\" hook",
             "timedOut": false,
-            "duration": 2665,
+            "duration": 2827,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "/* before hook for mocha testing */\n   page = await browser.newPage();\n   await page.goto(\"https://www.upwork.com/\");\n   await page.setViewport({ width: 1920, height: 1040 });",
             "err": {},
             "isRoot": false,
-            "uuid": "f065ca40-f2c8-4743-b5c6-6030a4fadbb6",
+            "uuid": "16c740d9-68c4-44d0-8782-8ea0ef7cb25e",
             "isHook": true,
             "skipped": false
           }
@@ -86,14 +86,14 @@
             "title": "\"after all\" hook",
             "fullTitle": "Tests for Upwork Login functionalities \"after all\" hook",
             "timedOut": false,
-            "duration": 148,
+            "duration": 174,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "/* after hook for mocha testing */\n    await page.close();",
             "err": {},
             "isRoot": false,
-            "uuid": "351cf122-05ca-4ebf-8d42-85723b2054ff",
+            "uuid": "f39730e6-590f-4790-a424-322819096154",
             "isHook": true,
             "skipped": false
           }
@@ -103,18 +103,18 @@
             "title": "should login to home page",
             "fullTitle": "Tests for Upwork Login functionalities should login to home page",
             "timedOut": false,
-            "duration": 512,
+            "duration": 235,
             "state": "failed",
             "pass": false,
             "fail": true,
             "pending": false,
-            "code": "/* simple test case */\n   const emailInput = \"#login-email\";\n   const passwordInput = \"#login-password\";\n   const submitSelector = \"#login-submit\";\n   linkEmail = await page.$(emailInput);\n   linkPassword = await page.$(passwordInput);\n   linkSubmit = await page.$(submitSelector);\n   await linkEmail.click({ clickCount: 3 });\n   await linkEmail.type(process.env.LINKEDIN_USER); // add the email address for linkedin //\n   await linkPassword.click({ clickCount: 3 });\n   await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account\n   await linkSubmit.click();\n   await page.waitFor(3000);",
+            "code": "/* simple test case */\n   const emailInput = \"#login_username\";\n   const passwordInput = \"#login-password\";\n   const submitSelector = \"#login-submit\";\n   linkEmail = await page.$(emailInput);\n   await linkEmail.click({ clickCount: 3 });\n   await linkEmail.type('testing@email.com'); // add the email address for linkedin //\n   // linkPassword = await page.$(passwordInput);\n   // linkSubmit = await page.$(submitSelector);\n\n   // await linkPassword.click({ clickCount: 3 });\n   // await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account\n   // await linkSubmit.click();\n   // await page.waitFor(3000);",
             "err": {
               "message": "TypeError: Cannot read property 'click' of null",
-              "estack": "TypeError: Cannot read property 'click' of null\n    at Context.it (test/upwork/upwork_login.spec.js:26:21)"
+              "estack": "TypeError: Cannot read property 'click' of null\n    at Context.it (test/upwork/upwork_login.spec.js:23:21)"
             },
             "isRoot": false,
-            "uuid": "bf68ca0f-a1d5-446c-ac90-9a91a625c9ee",
+            "uuid": "545e70b0-d9e6-488c-ad2a-2fa4e263b66b",
             "isHook": false,
             "skipped": false
           }
@@ -122,11 +122,11 @@
         "suites": [],
         "passes": [],
         "failures": [
-          "bf68ca0f-a1d5-446c-ac90-9a91a625c9ee"
+          "545e70b0-d9e6-488c-ad2a-2fa4e263b66b"
         ],
         "pending": [],
         "skipped": [],
-        "duration": 512,
+        "duration": 235,
         "root": false,
         "rootEmpty": false,
         "_timeout": 0

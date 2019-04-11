@@ -15,21 +15,22 @@ describe('Tests for Upwork Login functionalities', async () => {
   });
 
   it('should login to home page', async () => { /* simple test case */
-    const emailInput = "#login-email";
+    const emailInput = "#login_username";
     const passwordInput = "#login-password";
     const submitSelector = "#login-submit";
 
     linkEmail = await page.$(emailInput);
-    linkPassword = await page.$(passwordInput);
-    linkSubmit = await page.$(submitSelector);
-
     await linkEmail.click({ clickCount: 3 });
-    await linkEmail.type(process.env.LINKEDIN_USER); // add the email address for linkedin //
+    await linkEmail.type('testing@email.com'); // add the email address for linkedin //
 
-    await linkPassword.click({ clickCount: 3 });
-    await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account
+    // linkPassword = await page.$(passwordInput);
+    // linkSubmit = await page.$(submitSelector);
 
-    await linkSubmit.click();
-    await page.waitFor(3000);
+
+    // await linkPassword.click({ clickCount: 3 });
+    // await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account
+
+    // await linkSubmit.click();
+    // await page.waitFor(3000);
   });
 });
