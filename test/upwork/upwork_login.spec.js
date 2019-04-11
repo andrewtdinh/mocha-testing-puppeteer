@@ -6,7 +6,7 @@ describe('Tests for Upwork Login functionalities', async () => {
 
   before(async () => { /* before hook for mocha testing */
     page = await browser.newPage();
-    await page.goto("https://www.upwork.com/");
+    await page.goto("https://www.upwork.com/ab/account-security/login");
     await page.setViewport({ width: 1920, height: 1040 });
   });
 
