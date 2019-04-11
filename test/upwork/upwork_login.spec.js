@@ -1,12 +1,12 @@
 require('dotenv').config();
 const { expect } = require('chai');
 
-describe('simple test for Linkedin Login functionality', async () => {
+describe('Tests for Upwork Login functionalities', async () => {
   let page;
 
   before(async () => { /* before hook for mocha testing */
     page = await browser.newPage();
-    await page.goto("https://www.linkedin.com/");
+    await page.goto("https://www.upwork.com/");
     await page.setViewport({ width: 1920, height: 1040 });
   });
 
