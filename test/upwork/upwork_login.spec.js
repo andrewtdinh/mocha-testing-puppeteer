@@ -23,9 +23,9 @@ describe('Tests for Upwork Login functionalities', async () => {
     await usernameInput.click({ clickCount: 3 });
     await usernameInput.type(process.env.UPWORK_USER);   // add the user name for Upwork
 
-    linkPassword = await page.$(passwordInput);
-    await linkPassword.click({ clickCount: 3 });
-    await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account
+    pwInputField = await page.$(passwordInput);
+    await pwInputField.click({ clickCount: 3 });
+    await pwInputField.type(process.env.UPWORK_PASSWORD); // add password for Upwork account
     
     
     
