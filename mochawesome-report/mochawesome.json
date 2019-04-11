@@ -1,25 +1,25 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 1,
+    "suites": 2,
+    "tests": 2,
     "passes": 1,
     "pending": 0,
-    "failures": 0,
-    "start": "2019-04-08T06:11:03.304Z",
-    "end": "2019-04-08T06:11:18.185Z",
-    "duration": 14881,
-    "testsRegistered": 1,
-    "passPercent": 100,
+    "failures": 1,
+    "start": "2019-04-11T06:46:55.484Z",
+    "end": "2019-04-11T06:47:15.182Z",
+    "duration": 19698,
+    "testsRegistered": 2,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
-    "passPercentClass": "success",
+    "passPercentClass": "danger",
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "318d486a-11fd-406f-b3cb-e320ecc780d4",
+    "uuid": "60d0e3c5-c3cd-46c0-afcf-61f998e2157f",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,14 +28,14 @@
         "title": "\"before all\" hook",
         "fullTitle": "\"before all\" hook",
         "timedOut": false,
-        "duration": 801,
+        "duration": 1124,
         "pass": false,
         "fail": false,
         "pending": false,
         "code": "global.expect = expect;\nglobal.browser = await puppeteer.launch(opts);",
         "err": {},
         "isRoot": true,
-        "uuid": "1d42a710-c3c5-4dbb-a062-f32ac9450567",
+        "uuid": "a3913f8d-6503-4208-ab2b-9a351bf7ddd9",
         "isHook": true,
         "skipped": false
       }
@@ -45,14 +45,14 @@
         "title": "\"after all\" hook",
         "fullTitle": "\"after all\" hook",
         "timedOut": false,
-        "duration": 67,
+        "duration": 86,
         "pass": false,
         "fail": false,
         "pending": false,
         "code": "browser.close();\nglobal.browser = globalVariables.browser;\nglobal.expect = globalVariables.expect;\nsetTimeout(() => { cmd.run('node server.js'); }, 5000); \nsetTimeout(() => { opn('http://localhost:9988'); }, 2000);",
         "err": {},
         "isRoot": true,
-        "uuid": "de2e3bef-0f8c-4128-89f8-003fcd31c2bc",
+        "uuid": "21ad2a23-386d-4085-8a53-1679c83b36a3",
         "isHook": true,
         "skipped": false
       }
@@ -60,7 +60,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "616c292e-de95-4001-ae5e-c02aab938a8c",
+        "uuid": "4e944222-40df-45f5-91aa-ff8531176e50",
         "title": "simple test for Linkedin Login functionality",
         "fullFile": "/Users/andrewd/Personal/mocha-testing-puppeteer/test/sample.spec.js",
         "file": "/test/sample.spec.js",
@@ -69,14 +69,14 @@
             "title": "\"before all\" hook",
             "fullTitle": "simple test for Linkedin Login functionality \"before all\" hook",
             "timedOut": false,
-            "duration": 2652,
+            "duration": 2288,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "/* before hook for mocha testing */\n   page = await browser.newPage();\n   await page.goto(\"https://www.linkedin.com/\");\n   await page.setViewport({ width: 1920, height: 1040 });",
             "err": {},
             "isRoot": false,
-            "uuid": "b7492836-8f6f-40ef-b373-76026251ce9a",
+            "uuid": "2feebd9a-eaed-4b83-b125-feca768d125d",
             "isHook": true,
             "skipped": false
           }
@@ -86,14 +86,14 @@
             "title": "\"after all\" hook",
             "fullTitle": "simple test for Linkedin Login functionality \"after all\" hook",
             "timedOut": false,
-            "duration": 126,
+            "duration": 165,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "/* after hook for mocha testing */\n    await page.close();",
             "err": {},
             "isRoot": false,
-            "uuid": "4cbf99a5-00d1-4c8e-bf3a-2d659bc2a3be",
+            "uuid": "5fcb8735-dd2c-4b45-be50-cd3c14c0ddec",
             "isHook": true,
             "skipped": false
           }
@@ -103,28 +103,100 @@
             "title": "should login to home page",
             "fullTitle": "simple test for Linkedin Login functionality should login to home page",
             "timedOut": false,
-            "duration": 11224,
+            "duration": 10952,
             "state": "passed",
             "speed": "slow",
             "pass": true,
             "fail": false,
             "pending": false,
-            "code": "/* simple test case */\n   const emailInput = \"#login-email\";\n   const passwordInput = \"#login-password\";\n   const submitSelector = \"#login-submit\";\n   linkEmail = await page.$(emailInput);\n   linkPassword = await page.$(passwordInput);\n   linkSubmit = await page.$(submitSelector);\n   await linkEmail.click({ clickCount: 3 });\n   await linkEmail.type(process.env.EMAIL_ADDRESS); // add the email address for linkedin //\n   await linkPassword.click({ clickCount: 3 });\n   await linkPassword.type(process.env.PASSWORD); // add password for linkedin account\n   await linkSubmit.click();\n   await page.waitFor(3000);",
+            "code": "/* simple test case */\n   const emailInput = \"#login-email\";\n   const passwordInput = \"#login-password\";\n   const submitSelector = \"#login-submit\";\n   linkEmail = await page.$(emailInput);\n   linkPassword = await page.$(passwordInput);\n   linkSubmit = await page.$(submitSelector);\n   await linkEmail.click({ clickCount: 3 });\n   await linkEmail.type(process.env.LINKEDIN_USER); // add the email address for linkedin //\n   await linkPassword.click({ clickCount: 3 });\n   await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account\n   await linkSubmit.click();\n   await page.waitFor(3000);",
             "err": {},
             "isRoot": false,
-            "uuid": "d12b9dad-8a5d-496c-b30c-3c36c4d89bb8",
+            "uuid": "67d41aa5-dc53-46f3-8f60-3dc58d04f958",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "d12b9dad-8a5d-496c-b30c-3c36c4d89bb8"
+          "67d41aa5-dc53-46f3-8f60-3dc58d04f958"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 11224,
+        "duration": 10952,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 0
+      },
+      {
+        "uuid": "d057925c-5e33-4854-9eb0-20334a8e4c17",
+        "title": "simple test for Linkedin Login functionality",
+        "fullFile": "/Users/andrewd/Personal/mocha-testing-puppeteer/test/upwork/upwork_login.spec.js",
+        "file": "/test/upwork/upwork_login.spec.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "simple test for Linkedin Login functionality \"before all\" hook",
+            "timedOut": false,
+            "duration": 4527,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "/* before hook for mocha testing */\n   page = await browser.newPage();\n   await page.goto(\"https://www.linkedin.com/\");\n   await page.setViewport({ width: 1920, height: 1040 });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "d3298e03-b9f7-4dc9-9a02-a1c04e731055",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook",
+            "fullTitle": "simple test for Linkedin Login functionality \"after all\" hook",
+            "timedOut": false,
+            "duration": 128,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "/* after hook for mocha testing */\n    await page.close();",
+            "err": {},
+            "isRoot": false,
+            "uuid": "f8e28dc0-75f5-4f56-91b1-bd05ece8eb94",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "should login to home page",
+            "fullTitle": "simple test for Linkedin Login functionality should login to home page",
+            "timedOut": false,
+            "duration": 417,
+            "state": "failed",
+            "pass": false,
+            "fail": true,
+            "pending": false,
+            "code": "/* simple test case */\n   const emailInput = \"#login-email\";\n   const passwordInput = \"#login-password\";\n   const submitSelector = \"#login-submit\";\n   linkEmail = await page.$(emailInput);\n   linkPassword = await page.$(passwordInput);\n   linkSubmit = await page.$(submitSelector);\n   await linkEmail.click({ clickCount: 3 });\n   await linkEmail.type(process.env.LINKEDIN_USER); // add the email address for linkedin //\n   await linkPassword.click({ clickCount: 3 });\n   await linkPassword.type(process.env.LINKEDIN_PASSWORD); // add password for linkedin account\n   await linkSubmit.click();\n   await page.waitFor(3000);",
+            "err": {
+              "message": "TypeError: Cannot read property 'click' of null",
+              "estack": "TypeError: Cannot read property 'click' of null\n    at Context.it (test/upwork/upwork_login.spec.js:26:21)"
+            },
+            "isRoot": false,
+            "uuid": "26240dce-06e8-49cd-a7e2-af3033c1fb7c",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [
+          "26240dce-06e8-49cd-a7e2-af3033c1fb7c"
+        ],
+        "pending": [],
+        "skipped": [],
+        "duration": 417,
         "root": false,
         "rootEmpty": false,
         "_timeout": 0
