@@ -8,6 +8,9 @@ describe('Tests for Upwork Login functionalities', async () => {
     page = await browser.newPage();
     await page.goto("https://www.upwork.com/ab/account-security/login");
     await page.setViewport({ width: 1920, height: 1040 });
+    page.on('error', async () => {
+      await page.screenshot({ path: './error.png' });
+    })
   });
 
   after(async function () { /* after hook for mocha testing */
