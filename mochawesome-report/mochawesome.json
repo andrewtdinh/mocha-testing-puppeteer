@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2019-04-21T06:06:13.448Z",
-    "end": "2019-04-21T06:06:27.991Z",
-    "duration": 14543,
+    "start": "2019-04-22T06:33:31.216Z",
+    "end": "2019-04-22T06:33:36.468Z",
+    "duration": 5252,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "72dfb20b-fe97-4998-b6a1-0c470c7c3bb0",
+    "uuid": "ce9da981-9abf-4f0f-b4f1-57ad1f37d94e",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,14 +28,14 @@
         "title": "\"before all\" hook",
         "fullTitle": "\"before all\" hook",
         "timedOut": false,
-        "duration": 841,
+        "duration": 1007,
         "pass": false,
         "fail": false,
         "pending": false,
         "code": "global.expect = expect;\nglobal.browser = await puppeteer.launch(opts);",
         "err": {},
         "isRoot": true,
-        "uuid": "40767ea9-d2bc-4e4a-b4ae-265b41d0f2c5",
+        "uuid": "a1b68d5b-11c1-464b-9694-d15ed517beda",
         "isHook": true,
         "skipped": false
       }
@@ -45,14 +45,14 @@
         "title": "\"after all\" hook",
         "fullTitle": "\"after all\" hook",
         "timedOut": false,
-        "duration": 93,
+        "duration": 81,
         "pass": false,
         "fail": false,
         "pending": false,
         "code": "browser.close();\nglobal.browser = globalVariables.browser;\nglobal.expect = globalVariables.expect;\nsetTimeout(() => { cmd.run('node server.js'); }, 5000); \nsetTimeout(() => { opn('http://localhost:9988'); }, 2000);",
         "err": {},
         "isRoot": true,
-        "uuid": "aafa83c3-b4ff-424d-910b-e845b43ea249",
+        "uuid": "db17ff06-dd79-418f-8910-6b921834ba68",
         "isHook": true,
         "skipped": false
       }
@@ -60,7 +60,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "b197affb-366d-4fd0-96d3-7b15f1524098",
+        "uuid": "e52e1bc9-a99b-4a79-898c-99be9af2bc6a",
         "title": "Tests for Upwork Login functionalities",
         "fullFile": "/Users/andrewd/Personal/mocha-testing-puppeteer/test/upwork/upwork_login.spec.js",
         "file": "/test/upwork/upwork_login.spec.js",
@@ -69,14 +69,14 @@
             "title": "\"before all\" hook",
             "fullTitle": "Tests for Upwork Login functionalities \"before all\" hook",
             "timedOut": false,
-            "duration": 6508,
+            "duration": 3708,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "/* before hook for mocha testing */\n   page = await browser.newPage();\n   await page.goto(\"https://www.upwork.com/ab/account-security/login\");\n   await page.setViewport({ width: 1920, height: 1040 });\n   page.on('error', async () => {\n   })",
             "err": {},
             "isRoot": false,
-            "uuid": "ea2507c4-2149-4ee3-add0-76e260e5ed38",
+            "uuid": "cda825d6-6328-447a-92ed-1129ceb902c0",
             "isHook": true,
             "skipped": false
           }
@@ -86,14 +86,14 @@
             "title": "\"after all\" hook",
             "fullTitle": "Tests for Upwork Login functionalities \"after all\" hook",
             "timedOut": false,
-            "duration": 127,
+            "duration": 131,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "/* after hook for mocha testing */\n    await page.close();",
             "err": {},
             "isRoot": false,
-            "uuid": "640c9ee4-742b-4537-b68d-f4e4a392023f",
+            "uuid": "ce8dcd4e-1378-48f6-a707-cd3f85322778",
             "isHook": true,
             "skipped": false
           }
@@ -103,18 +103,18 @@
             "title": "should login to home page",
             "fullTitle": "Tests for Upwork Login functionalities should login to home page",
             "timedOut": false,
-            "duration": 6961,
+            "duration": 313,
             "state": "failed",
             "pass": false,
             "fail": true,
             "pending": false,
-            "code": "/* simple test case */\n   const userInput = '#login_username';\n   const continueBtn = 'button[type=\"submit\"]'\n   const passwordInput = '#login_password';\n   const submitSelector = '#login-submit';\n   \n   usernameInput = await page.$(userInput);\n   await usernameInput.click({ clickCount: 3 });\n   await usernameInput.type(process.env.UPWORK_USER);   // add the user name for Upwork account\n   continueButton = await page.$(continueBtn);\n   await continueButton.click();\n   await page.screenshot({ path: './test.png' });\n   pwInputField = await page.$(passwordInput);\n   await pwInputField.click({ clickCount: 3 });\n   await pwInputField.type(process.env.UPWORK_PASSWORD); // add password for Upwork account\n   \n   \n   \n   // linkSubmit = await page.$(submitSelector);\n   // await linkSubmit.click();\n   // await page.waitFor(3000);",
+            "code": "/* simple test case */\n   const userInput = '#login_username';\n   const continueBtn = 'button[type=\"submit\"]'\n   const passwordInput = '#login_password';\n   const submitSelector = '#login-submit';\n   \n   usernameInput = await page.$(userInput);\n   // await usernameInput.click({ clickCount: 3 });\n   await page.focus(usernameInput);\n   await usernameInput.type(process.env.UPWORK_USER);   // add the user name for Upwork account\n   const form = await page.$('.form-group');\n   await form.evaluate(form => form.submit());\n   page = await browser.newPage();\n   // await page.press('Enter')\n   // continueButton = await page.$(continueBtn);\n   // await continueButton.click();\n   await page.screenshot({ path: './test.png' });\n   pwInputField = await page.$(passwordInput);\n   await pwInputField.click({ clickCount: 3 });\n   await pwInputField.type(process.env.UPWORK_PASSWORD); // add password for Upwork account\n   \n   \n   \n   // linkSubmit = await page.$(submitSelector);\n   // await linkSubmit.click();\n   // await page.waitFor(3000);",
             "err": {
-              "message": "Error: Node is either not visible or not an HTMLElement",
-              "estack": "Error: Node is either not visible or not an HTMLElement\n    at ElementHandle._clickablePoint (node_modules/puppeteer/lib/JSHandle.js:196:13)\n  -- ASYNC --\n    at ElementHandle.<anonymous> (node_modules/puppeteer/lib/helper.js:110:27)\n    at Context.it (test/upwork/upwork_login.spec.js:33:24)"
+              "message": "Error: JSHandles can be evaluated only in the context they were created!",
+              "estack": "Error: JSHandles can be evaluated only in the context they were created!\n    at ExecutionContext.convertArgument (node_modules/puppeteer/lib/ExecutionContext.js:143:17)\n    at Array.map (<anonymous>)\n    at ExecutionContext.evaluateHandle (node_modules/puppeteer/lib/ExecutionContext.js:109:25)\n    at ExecutionContext.<anonymous> (node_modules/puppeteer/lib/helper.js:111:23)\n    at ElementHandle.$ (node_modules/puppeteer/lib/JSHandle.js:378:50)\n    at ElementHandle.<anonymous> (node_modules/puppeteer/lib/helper.js:111:23)\n    at DOMWorld.$ (node_modules/puppeteer/lib/DOMWorld.js:114:34)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules/puppeteer/lib/helper.js:110:27)\n    at Page.focus (node_modules/puppeteer/lib/Page.js:1022:29)\n    at Context.it (test/upwork/upwork_login.spec.js:27:16)"
             },
             "isRoot": false,
-            "uuid": "7c51d5b2-3860-44e4-97e5-a1b867fb4389",
+            "uuid": "29c43230-8ab1-4c76-b998-da0ea2882c94",
             "isHook": false,
             "skipped": false
           }
@@ -122,11 +122,11 @@
         "suites": [],
         "passes": [],
         "failures": [
-          "7c51d5b2-3860-44e4-97e5-a1b867fb4389"
+          "29c43230-8ab1-4c76-b998-da0ea2882c94"
         ],
         "pending": [],
         "skipped": [],
-        "duration": 6961,
+        "duration": 313,
         "root": false,
         "rootEmpty": false,
         "_timeout": 0

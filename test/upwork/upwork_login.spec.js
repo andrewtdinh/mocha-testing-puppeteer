@@ -23,10 +23,15 @@ describe('Tests for Upwork Login functionalities', async () => {
     const submitSelector = '#login-submit';
     
     usernameInput = await page.$(userInput);
-    await usernameInput.click({ clickCount: 3 });
+    // await usernameInput.click({ clickCount: 3 });
+    await page.focus(usernameInput);
     await usernameInput.type(process.env.UPWORK_USER);   // add the user name for Upwork account
-    continueButton = await page.$(continueBtn);
-    await continueButton.click();
+    const form = await page.$('.form-group');
+    await form.evaluate(form => form.submit());
+    page = await browser.newPage();
+    // await page.press('Enter')
+    // continueButton = await page.$(continueBtn);
+    // await continueButton.click();
     await page.screenshot({ path: './test.png' });
 
     pwInputField = await page.$(passwordInput);
